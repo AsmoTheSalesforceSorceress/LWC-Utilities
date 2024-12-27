@@ -56,4 +56,4 @@ Once setup is complete, users can click to open the `newRecordAnywhereUtility` c
 - If a Record Type Name is specified, the new record form used will be that of the specified record type, including any field modifications specific to that record type.
 
 ## Support
-For any issues or questions, contact Emilyn Pantelakis or the Product+ development team.
+For any issues or questions, feel free to shoot me an email at lepantelakis+github@gmail.com
