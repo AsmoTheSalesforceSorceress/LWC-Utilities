@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__UtilityBar</target>
+        <target>lightning__Tab</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage, lightning__AppPage, lightning__HomePage, lightning__FlowScreen, lightning__Tab">
+            <property name="primaryPicklistLabel" type="String" label="Primary Picklist Label" description="The label of the primary picklist field." />
+            <property name="primaryRequired" type="Boolean" label="Primary Picklist Required" description="Set to true if the primary picklist field should be required." />
+            <property name="secondaryPicklistLabel" type="String" label="Secondary Picklist Label" description="The label of the secondary picklist field." />
+            <property name="secondaryRequired" type="Boolean" label="Secondary Picklist Required" description="Set to true if the secondary picklist field should be required." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

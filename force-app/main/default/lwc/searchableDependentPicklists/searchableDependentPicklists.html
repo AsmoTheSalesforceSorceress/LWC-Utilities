@@ -1,0 +1,72 @@
+<template>
+    <!-- Primary picklist -->
+    <div class="slds-m-bottom_small">
+        <div class="slds-form-element">
+            <!-- Required asterisk - enabled if primaryRequired = true -->
+            <div lwc:if={primaryRequired}>
+                <abbr title="required" class="slds-required">*</abbr>
+            </div>
+            <!-- Primary picklist label -->
+            <label class="slds-form-element__label slds-no-flex">{primaryPicklistLabel}</label>
+            <div class="slds-form-element__control">
+                <lightning-input class="primaryPicklist" data-id="primaryPicklist" variant="label-hidden"
+                    onchange={search} onfocus={showPicklistOptions} type="search" value={primaryValue}
+                    placeholder="Search..." aria-required="true">
+                </lightning-input>
+                <div if:true={showprimaryPicklist} class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                    role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <template for:each={searchResults} for:item="searchResult">
+                            <li data-id="primaryPicklist" key={searchResult.label} data-value={searchResult.label}
+                                role="presentation" class="slds-listbox__item" onclick={selectSearchResult}>
+                                <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                    role="option">
+                                    <span class="slds-media__body">
+                                        <span class="slds-truncate" title={searchResult.label}>
+                                            {searchResult.label}
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondary picklist -->
+    <div class="slds-m-bottom_small">
+        <div class="slds-form-element">
+            <!-- Required asterisk - enabled if primaryRequired = true -->
+            <div lwc:if={secondaryRequired}>
+                <abbr title="required" class="slds-required">*</abbr>
+            </div>
+            <!-- Secondary picklist label -->
+            <label class="slds-form-element__label slds-no-flex">{secondaryPicklistLabel}</label>
+            <div class="slds-form-element__control">
+                <lightning-input class="secondaryPicklist" data-id="secondaryPicklist" variant="label-hidden"
+                    onchange={search} onfocus={showSecondaryPicklist} type="search" value={secondaryValue}
+                    placeholder="Search..." aria-required="true" disabled={noPrimaryOptionSelected}>
+                </lightning-input>
+                <div if:true={showSecondaryPicklist} class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                    role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <template for:each={searchResults} for:item="searchResult">
+                            <li data-id="secondaryPicklist" key={searchResult.label} data-value={searchResult.label}
+                                role="presentation" class="slds-listbox__item" onclick={selectSearchResult}>
+                                <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                    role="option">
+                                    <span class="slds-media__body">
+                                        <span class="slds-truncate" title={searchResult.label}>
+                                            {searchResult.label}
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

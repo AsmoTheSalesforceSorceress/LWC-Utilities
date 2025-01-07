@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>
+    Utility component able to create any record from any other record page when launched from a Detail Page Button.
+    Created date: 12/24
+    Created by: Emilyn Pantelakis
+    </description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__UrlAddressable</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="originObjectApiName" type="String" label="Origin Object API Name" description="The API name of the object to create a new record from." required="true" />
+            <property name="objectApiName" type="String" label="Object API Name" description="The API name of the object to create a new record for." required="true" />
+            <property name="recordTypeName" type="String" label="Record Type" description="The DeveloperName of the record type to use when creating a new record. (optional)" required="false" />
+            <property name="fieldMap" type="String" label="Fields" description="A comma-separated list of field mappings to prepopulate when creating a new record. Include in format originFieldAPIName:destinationFieldAPIName. (optional)" required="false" />
+            <property name="fieldValues" type="String" label="Field Values" description="A comma-separated list of field values to prepopulate when creating a new record. Include in format fieldAPIName:value. (optional)" required="false" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
